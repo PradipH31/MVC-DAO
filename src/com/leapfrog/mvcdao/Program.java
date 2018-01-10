@@ -5,6 +5,7 @@
  */
 package com.leapfrog.mvcdao;
 
+import com.leapfrog.mvcdao.entity.Account;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,12 +20,17 @@ public class Program {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        List<String> names = new ArrayList<>();
-        names.add(0, "Raj");
-        names.add("Pradip");
-        names.remove(0);
-        System.out.println(names.get(0));
+        List<Account> accounts = new ArrayList<>();
 
+        accounts.add(new Account(0, "Normal Savings", 2.5, 0));
+        accounts.add(new Account(1, "Nari Bachat", 6, 1000));
+
+        for (Account a : accounts) {
+            System.out.println("Name: " + a.getName());
+            System.out.println("Interest: " + a.getInterest());
+            System.out.println("Minimum Balance: " + a.getMinimumBalance());
+            System.out.println("---------------------------");
+        }
     }
 
 }
