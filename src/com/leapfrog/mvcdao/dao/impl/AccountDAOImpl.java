@@ -28,4 +28,31 @@ public class AccountDAOImpl implements AccountDAO {
         return accounts;
     }
 
+    @Override
+    public int insertId() {
+        int size = accounts.size();
+        return (size == 0) ? 1 : accounts.get(size - 1).getId() + 1;
+    }
+
+    @Override
+    public Account getById(int id) {
+        for (Account account : accounts) {
+            if (account.getId() == id) {
+                return account;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public boolean delete(int id) {
+        for (Account a : accounts) {
+            if (a.getId() == id) {
+                accounts.remove(a);
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

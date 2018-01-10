@@ -15,6 +15,13 @@ import java.util.List;
 public interface AccountDAO {
 
     boolean insert(Account account);
+
     List<Account> getAll();
+
+    int insertId();
+
+    Account getById(int id);
+
+    boolean delete(int id);
 
 }
